@@ -6,13 +6,11 @@ const PATHNAME_MAPS = {
 		/^\/api\//,
 		/^\/ajax\//,
 		/^\/c1\//,
-		/^\/order\//,
-		/^\/sms\//,
-		/^\/software\//,
 		/^\/_work\//,
 		/^\/mailgun\/webhook/,
+		/^\/backend\//,
 	],
-	cabinet: [/^\/account\//, /^\/backend\//, /^\/panel(\/.*)?$/, /^\/panel$/, /^\/[a-z]{2}\/panel(\/.*)?$/],
+	cabinet: [/^\/order\//, /^\/sms\//, /^\/software\//, /^\/account\//, /^\/panel(\/.*)?$/, /^\/panel$/, /^\/[a-z]{2}\/panel(\/.*)?$/],
 };
 
 const HOSTNAME_MAPS = {
