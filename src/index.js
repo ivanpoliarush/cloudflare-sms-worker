@@ -13,10 +13,10 @@ const PATHNAME_MAPS = {
 	cabinet: [/^\/order\//, /^\/sms\//, /^\/software\//, /^\/account\//, /^\/panel(\/.*)?$/, /^\/panel$/, /^\/[a-z]{2}\/panel(\/.*)?$/],
 };
 
-const HOSTNAME_MAPS = {
-	landing: 'test1.com',
-	api: 'test2.com',
-	cabinet: 'test3.com',
+const HOST_MAPS = {
+	landing: 'localhost:3001',
+	api: 'localhost:3002',
+	cabinet: 'localhost:3003',
 };
 
 const resolveTargetType = (pathname) => {
@@ -26,12 +26,12 @@ const resolveTargetType = (pathname) => {
 };
 
 export default {
-	async fetch(request, env, ctx) {
+	async fetch(request) {
 		const url = new URL(request.url);
 		const targetType = resolveTargetType(url.pathname);
-		const targetHostname = HOSTNAME_MAPS[targetType];
+		const targetHostname = HOST_MAPS[targetType];
 
-		url.hostname = targetHostname;
+		url.host = targetHostname;
 
 		const modifiedRequest = new Request(url, {
 			method: request.method,
