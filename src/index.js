@@ -14,14 +14,20 @@ const PATHNAME_MAPS = {
 };
 
 const HOST_MAPS = {
-	landing: 'localhost:3001',
-	api: 'localhost:3002',
-	cabinet: 'localhost:3003',
+	landing: 'localhost:3001', // Replace with your landing domain
+	api: 'localhost:3002', // Replace with your API domain
+	cabinet: 'localhost:3003', // Replace with your cabinet domain
 };
 
 const resolveTargetType = (pathname) => {
-	if (PATHNAME_MAPS.api.some((regex) => regex.test(pathname))) return 'api';
-	if (PATHNAME_MAPS.cabinet.some((regex) => regex.test(pathname))) return 'cabinet';
+	if (PATHNAME_MAPS.api.some((regex) => regex.test(pathname))) {
+		return 'api';
+	}
+
+	if (PATHNAME_MAPS.cabinet.some((regex) => regex.test(pathname))) {
+		return 'cabinet';
+	}
+
 	return 'landing';
 };
 
